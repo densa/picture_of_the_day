@@ -21,4 +21,9 @@ class PhotoPreviewParams {
 
   final String photoUrl;
   final String title;
+
+  Map<String, dynamic> toJson() => {
+        'photoUrl': photoUrl,
+        'title': title,
+      };
 }

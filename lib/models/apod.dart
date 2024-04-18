@@ -19,7 +19,7 @@ sealed class Apod with _$Apod {
   }) = _$ApodVideo;
 
   factory Apod.fromJson(Map<String, dynamic> json) {
-    if (json['type'] == 'image') {
+    if (json['media_type'] == 'image') {
       return _$ApodImage.fromJson(json);
     } else {
       return _$ApodVideo.fromJson(json);
