@@ -25,7 +25,7 @@ class _Content extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final apod = ref.watch(pictureOfTheDayProvider);
+    final apod = ref.watch(pictureOfTheDayProvider());
     return apod.when(
       data: (data) {
         return data.map(
@@ -50,7 +50,7 @@ class _Content extends ConsumerWidget {
           children: [
             Text("An error occurred: $error"),
             ElevatedButton(
-              onPressed: () => ref.refresh(pictureOfTheDayProvider),
+              onPressed: () => ref.refresh(pictureOfTheDayProvider()),
               child: const Text("Retry"),
             ),
           ],
