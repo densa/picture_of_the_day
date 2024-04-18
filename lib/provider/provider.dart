@@ -17,7 +17,7 @@ Future<Apod> pictureOfTheDay(PictureOfTheDayRef ref) async {
       baseUrl,
       '/planetary/apod',
       {
-        'date': '2024-04-18',
+        'date': '2024-04-14',
         'api_key': apiKey,
       },
     ),

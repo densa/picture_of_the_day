@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:picture_of_the_day/photo_preview.dart';
 import 'package:picture_of_the_day/provider/provider.dart';
 import 'package:picture_of_the_day/widgets/photo.dart';
+import 'package:picture_of_the_day/widgets/video.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -39,7 +40,7 @@ class _Content extends ConsumerWidget {
                   ));
             },
           ),
-          video: (video) => SizedBox.shrink(),
+          video: (video) => VideoContent(videoUrl: video.url),
         );
       },
       loading: () => const Center(child: CircularProgressIndicator()),
