@@ -11,7 +11,15 @@ class PhotoPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Image.network(photoUrl),
+      backgroundColor: Colors.black,
+      body: Center(
+        child: LayoutBuilder(builder: (context, constraints) {
+          return SizedBox(
+            height: constraints.maxHeight,
+            child: Image.network(photoUrl),
+          );
+        }),
+      ),
     );
   }
 }
