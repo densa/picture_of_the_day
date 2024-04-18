@@ -17,6 +17,7 @@ final router = GoRouter(
             return FadeInTransition(
               child: PhotoPreview(
                 photoUrl: params.photoUrl,
+                title: params.title,
               ),
             );
           },
