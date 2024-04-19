@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:picture_of_the_day/photo_preview.dart';
 import 'package:picture_of_the_day/provider/provider.dart';
 import 'package:picture_of_the_day/widgets/photo.dart';
 import 'package:picture_of_the_day/widgets/video.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({
+    super.key,
+    required this.date,
+  });
+
+  final String date;
 
   @override
   Widget build(BuildContext context) {
@@ -15,17 +19,17 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("NASA's Astronomy Picture of the Day"),
       ),
-      body: const _Content(),
+      body: _Content(date),
     );
   }
 }
 
 class _Content extends ConsumerWidget {
-  const _Content();
-
+  const _Content(this.date);
+  final String date;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final apod = ref.watch(pictureOfTheDayProvider());
+    final apod = ref.watch(pictureOfTheDayProvider(date: date));
     return apod.when(
       data: (data) {
         return data.map(
@@ -33,11 +37,7 @@ class _Content extends ConsumerWidget {
             photoUrl: image.url,
             title: image.title,
             onPhtoTap: () {
-              context.go('/preview',
-                  extra: PhotoPreviewParams(
-                    photoUrl: image.hdurl,
-                    title: data.title,
-                  ));
+              context.go('/$date/preview');
             },
           ),
           video: (video) => VideoContent(videoUrl: video.url),
