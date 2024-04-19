@@ -2,10 +2,9 @@
 
 Flutter web app that fetches the picture of the day from NASA's APOD API.
 
+## Getting Started
 
-
-## TODO
-
-- [] Handle different days
-- [] handle links like /2022-01-01/preview
-- [] Add unit tests
+1. Clone the repository
+2. Run `flutter pub get`
+3. Run `dart pub run build_runner build`
+4. Run `flutter run -d chrome`

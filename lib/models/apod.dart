@@ -18,6 +18,7 @@ sealed class Apod with _$Apod {
     required String url,
   }) = _$ApodVideo;
 
+  //TODO: adjust this to match actual media types: image, video thow an error if the media type is not supported
   factory Apod.fromJson(Map<String, dynamic> json) {
     if (json['media_type'] == 'image') {
       return _$ApodImage.fromJson(json);
